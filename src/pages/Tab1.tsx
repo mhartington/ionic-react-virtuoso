@@ -1,6 +1,15 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { Virtuoso } from 'react-virtuoso';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonItem,
+  IonAvatar,
+  IonLabel,
+} from '@ionic/react';
 import './Tab1.css';
 
 const Tab1: React.FC = () => {
@@ -17,7 +26,25 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">Tab 1</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+        <Virtuoso
+          totalCount={100000}
+          overscan={200}
+          style={{ height: '100%', width: '100%' }}
+          item={(index) => (
+            <IonItem>
+              <IonAvatar slot="start">
+                <img
+                  src={'https://picsum.photos/200?q=' + index}
+                  loading="lazy"
+                />
+              </IonAvatar>
+              <IonLabel>
+                <p>Item {index}</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </IonLabel>
+            </IonItem>
+          )}
+        />
       </IonContent>
     </IonPage>
   );
