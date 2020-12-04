@@ -1,0 +1,7 @@
+{
+  "name": "ionic-react-virtuoso",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
